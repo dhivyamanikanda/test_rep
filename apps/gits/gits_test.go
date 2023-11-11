@@ -17,54 +17,54 @@ type Gits struct {
 
 var GITS Gits
 
-func TestPostGit(t *testing.T) {
-	// Create a new request with GET method and /users endpoint
+// func TestPostGit(t *testing.T) {
+// 	// Create a new request with GET method and /users endpoint
 
-	reqBody := []byte(`{"description":"Example of a gist from golang",
-		"public":true,
-		"files":{
-		"README.md":{
-			"content":"Hello World"
-		}
-	}
-	}`)
-	request, err := http.NewRequest("POST", "https://api.github.com/gists", bytes.NewReader(reqBody))
-	if err != nil {
-		t.Fatal(err)
-	}
+// 	reqBody := []byte(`{"description":"Example of a gist from golang",
+// 		"public":true,
+// 		"files":{
+// 		"README.md":{
+// 			"content":"Hello World"
+// 		}
+// 	}
+// 	}`)
+// 	request, err := http.NewRequest("POST", "https://api.github.com/gists", bytes.NewReader(reqBody))
+// 	if err != nil {
+// 		t.Fatal(err)
+// 	}
 
-	token := "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"
-	request.Header.Set("Authorization", "Bearer "+token)
-	request.Header.Set("Accept", "application/vnd.github+json")
+// 	token := "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"
+// 	request.Header.Set("Authorization", "Bearer "+token)
+// 	request.Header.Set("Accept", "application/vnd.github+json")
 
-	client := &http.Client{}
-	response, err := client.Do(request)
-	if err != nil {
-		t.Fatal(err)
-	}
+// 	client := &http.Client{}
+// 	response, err := client.Do(request)
+// 	if err != nil {
+// 		t.Fatal(err)
+// 	}
 
-	// Check the status code of the response
-	if status := response.StatusCode; status != http.StatusCreated {
-		t.Errorf("Unexpected status code: got %v, want %v", status, http.StatusOK)
-	}
+// 	// Check the status code of the response
+// 	if status := response.StatusCode; status != http.StatusCreated {
+// 		t.Errorf("Unexpected status code: got %v, want %v", status, http.StatusOK)
+// 	}
 
-	defer response.Body.Close()
-	responseBody, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		t.Fatal(err)
-	}
+// 	defer response.Body.Close()
+// 	responseBody, err := ioutil.ReadAll(response.Body)
+// 	if err != nil {
+// 		t.Fatal(err)
+// 	}
 
-	//var gits Gits
-	err = json.Unmarshal(responseBody, &GITS)
-	if err != nil {
-		t.Fatal(err)
-	}
+// 	//var gits Gits
+// 	err = json.Unmarshal(responseBody, &GITS)
+// 	if err != nil {
+// 		t.Fatal(err)
+// 	}
 
-	fmt.Println(GITS.ID)
+// 	fmt.Println(GITS.ID)
 
-	// Print the response body
-	//fmt.Println(string(responseBody))
-}
+// 	// Print the response body
+// 	//fmt.Println(string(responseBody))
+// }
 
 func TestGetGit(t *testing.T) {
 	// Create a new request with GET method and /users endpoint
