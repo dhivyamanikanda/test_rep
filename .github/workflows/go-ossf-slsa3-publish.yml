@@ -35,4 +35,4 @@ jobs:
         go build
         go test ./apps/gits
       env:
-          TOKEN: ${{ vars.TOKEN }
+          TOKEN: ${{ vars.TOKEN }}
