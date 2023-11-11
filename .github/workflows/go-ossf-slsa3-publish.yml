@@ -2,6 +2,9 @@ on:
   push:
   workflow_dispatch:
 
+env:
+  Git: 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
+  
 jobs:
   test:
     name: API Test
@@ -30,3 +33,5 @@ jobs:
       run: |
         go build
         go test ./apps/gits
+      env:
+          Git: ${{ env.Git }}
