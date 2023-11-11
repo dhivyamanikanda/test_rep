@@ -101,7 +101,7 @@ func TestGetGit(t *testing.T) {
 	
 	fmt.Println(os.Getenv("vars.TOKEN"))
 	//token := "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"
-	request.Header.Set("Authorization", "Bearer "+os.Getenv("Git"))
+	request.Header.Set("Authorization", "Bearer "+os.Getenv("vars.TOKEN"))
 	request.Header.Set("Accept", "application/vnd.github+json")
 
 	client := &http.Client{}
