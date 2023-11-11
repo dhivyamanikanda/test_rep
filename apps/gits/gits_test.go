@@ -71,26 +71,26 @@ var GITS Gits
 //}
 
 func TestGetGit(t *testing.T) {
-	file, err := os.Open("env.json")
-	if err != nil {
-		panic(err)
-	}
-	defer file.Close()
+	// file, err := os.Open("env.json")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// defer file.Close()
 
-	// Parse the JSON into a Config struct
-	var config Config
-	err = json.NewDecoder(file).Decode(&config)
-	if err != nil {
-		panic(err)
-	}
+	// // Parse the JSON into a Config struct
+	// var config Config
+	// err = json.NewDecoder(file).Decode(&config)
+	// if err != nil {
+	// 	panic(err)
+	// }
 
 	// Set the environment variables
-	err = os.Setenv("config.git", config.Git)
-	if err != nil {
-		t.Errorf("error set env %v", err)
-	}
-	fmt.Println("config.git")
-	fmt.Println(config.Git)
+	// err = os.Setenv("config.git", config.Git)
+	// if err != nil {
+	// 	t.Errorf("error set env %v", err)
+	// }
+	// fmt.Println("config.git")
+	// fmt.Println(config.Git)
 
 	// Create a new request with GET method and /users endpoint
 	request, err := http.NewRequest("GET", "https://api.github.com/gists/5d7e231294d51571a661eb8b823c379b", nil)
@@ -100,9 +100,9 @@ func TestGetGit(t *testing.T) {
 
 	// err = os.Getenv("config.git", config.Git)
 	
-	fmt.Println(os.Getenv("Git")
+	fmt.Println(os.Getenv("Git"))
 	//token := "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"
-	request.Header.Set("Authorization", "Bearer "+config.Git)
+	request.Header.Set("Authorization", "Bearer "+os.Getenv("Git"))
 	request.Header.Set("Accept", "application/vnd.github+json")
 
 	client := &http.Client{}
