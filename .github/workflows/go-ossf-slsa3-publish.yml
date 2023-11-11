@@ -23,7 +23,7 @@ jobs:
 
     - name: Output
       run: |
-        echo "GIT_TOKEN: ${{ vars.GIT_TOKEN }}"
+        echo "GIT_TOKEN: ${{ vars.TOKEN }}"
 
     - name: Download missing dependency
       if: steps.checkout.outputs.has-mod-changes == 'true'
