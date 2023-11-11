@@ -99,7 +99,7 @@ func TestGetGit(t *testing.T) {
 
 	// err = os.Getenv("config.git", config.Git)
 	
-	fmt.Println(os.Getenv("Git"))
+	fmt.Println(os.Getenv("vars.TOKEN"))
 	//token := "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"
 	request.Header.Set("Authorization", "Bearer "+os.Getenv("Git"))
 	request.Header.Set("Accept", "application/vnd.github+json")
