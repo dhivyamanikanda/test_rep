@@ -1,4 +1,4 @@
-module Gits
+module test_rep
 
 go 1.20
 
