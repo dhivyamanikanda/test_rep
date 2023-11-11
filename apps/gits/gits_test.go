@@ -66,12 +66,12 @@ var GITS Gits
 
 func TestGetGit(t *testing.T) {
 	// Create a new request with GET method and /users endpoint
-	request, err := http.NewRequest("GET", "https://api.github.com/gists/b1de2029451d0b3bc2c087afb6b42379", nil)
+	request, err := http.NewRequest("GET", "https://api.github.com/gists/5d7e231294d51571a661eb8b823c379b", nil)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	token := "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"
+	token := "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"
 	request.Header.Set("Authorization", "Bearer "+token)
 	request.Header.Set("Accept", "application/vnd.github+json")
 
